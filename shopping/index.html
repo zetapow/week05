@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <!-- FONT AWESOME -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer" />
+      <script src="app.js" defer></script>
+      <title>Shopping List</title>
+   </head>
+   <body>
+      <h1>Shopping List</h1>
+      <form onsubmit="addItem(event)">
+         <label for="item">Item Name</label>
+         <input type="text" name="item" id="item" placeholder="Item" />
+         <label for="number">Quantity</label>
+         <input
+            type="number"
+            name="quantity"
+            id="quantity"
+            placeholder="Quantity" />
+         <button type="submit">Add to List</button>
+      </form>
+
+      <p id="list-display"></p>
+
+      <hr />
+      <h1>Shopping Basket</h1>
+      <p>
+         Enter the products in your basket seperated by commas, to see if you
+         have forgotten anything.
+      </p>
+      <form onsubmit="addToBasket(event)">
+         <input
+            type="text"
+            name="shopping-basket"
+            id="shopping-basket"
+            placeholder="item1, item2, itemN" />
+         <button type="submit">Add item(s) to basket</button>
+      </form>
+
+      <p id="items-to-buy"></p>
+      <!-- <i class="fa-solid fa-trash"></i> -->
+   </body>
+</html>
