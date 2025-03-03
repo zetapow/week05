@@ -73,7 +73,8 @@ const addToBasket = (event) => {
    const basketArray = shoppingBasket.value
       .toLowerCase()
       .split(',')
-      .map((item) => item.trim());
+      // .map((item) => item.trim());
+      .split(/,\s*/);
 
    //  filter() returns new array of elements that contain pass condition
 
