@@ -61,6 +61,88 @@ document.querySelector('.text').innerHTML = `<b><i>${dreamColour}<i/></b>`;
 const currentCar = new Car('Toyota', 2014, 'Aqua', 'red');
 const CurrentColour = currentCar.printColour();
 
+/* Inheritance
+
+Class created with class inheritance (extends) inherits all methods from another class
+
+-extends 
+create child class of another class
+child class inherits all methods
+*/
+
+class CoastalCity extends City {
+   constructor(name, travelled, coastLength) {
+      //Call parent constructor
+      super(name, travelled);
+      this.coastLength = coastLength;
+   }
+   visitBeach() {
+      // Child can have method parent doesnt have
+      console.log(`The coast line is ${this.coastLength} km long`);
+   }
+   travel() {
+      // implements differently from parent method
+      this.travelled = true;
+      console.log('The coast line is nice');
+   }
+}
+
+/*
+-super()
+call constructor of parent class to access the parent's properties and methods
+
+*/
+class City {
+   constructor(name, travelled) {
+      this.name = name;
+      this.travelled = travelled;
+   }
+
+   travel() {
+      // Will only call if child does not have travel method
+      this.travelled = true;
+   }
+}
+
+/*
+-polymorphism
+Define a method in parent class and can override or customize method in child class
+
+*/
+
+// Put it together
+
+const tauranga = new CoastalCity('Tauranga', false, 20);
+tauranga.travel();
+tauranga.visitBeach();
+
+class OrkUnit {
+   constructor(health, speed, strength) {
+      this.health = `${health} hitpoints`;
+      this.speed = speed;
+      this.strength = strength;
+   }
+   attack() {
+      console.log('The ork says WAAAAAGGGH');
+   }
+}
+
+const stormboyz = new OrkUnit(250, 'medium', 'strong');
+stormboyz.attack();
+
+class OrkBiker extends OrkUnit {
+   constructor(health, speed, strength, range) {
+      super(health, speed, strength);
+      this.movementRange = range;
+   }
+   attack() {
+      console.log(`This warbiker has a range of ${this.movementRange} km`);
+   }
+}
+
+const warbiker = new OrkBiker('150', 'fast', 'medium', 80);
+warbiker.attack();
+
 // Car example
 class Car1 {
    constructor(make, model, year) {
